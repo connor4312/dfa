@@ -1,6 +1,6 @@
 #dfa
 
-This is a simple renderer for deterministic finite automaton. Currently it's not super beautiful (couple hour hack), but it works.
+This is a simple renderer for deterministic finite automaton. Currently it's not super beautiful (couple hour hack because I wanted to write some Go), but it works.
 
 ![](http://i.imgur.com/pjH8y2A.png)
 
