@@ -186,16 +186,8 @@ func (s *State) PlotChildren(canvas *svg.SVG) {
 
 			// Now the curvature point, which is 90 degrees off the
 			// midpoint of the line.
-			var curvex, curvey int
-			midx, midy := endx+(startx-endx)/2, endy+(starty-endy)/2
-			// // A little cheat to prevent overlaps...
-			if sway > 0 {
-				curvex = midx + int(math.Cos(angle+math.Pi)*float64(LINE_SWAY_CURVE))
-				curvey = midy - int(math.Sin(angle+math.Pi)*float64(LINE_SWAY_CURVE))
-			} else {
-				curvex = midx + int(math.Cos(angle-math.Pi)*float64(LINE_SWAY_CURVE))
-				curvey = midy - int(math.Sin(angle-math.Pi)*float64(LINE_SWAY_CURVE))
-			}
+			curvex := endx + (startx-endx)/2 + int(math.Cos(angle+math.Pi)*float64(LINE_SWAY_CURVE))
+			curvey := endy + (starty-endy)/2 - int(math.Sin(angle+math.Pi)*float64(LINE_SWAY_CURVE))
 
 			// Finally, draw the line and label it!
 			drawConnect(canvas, startx, starty, curvex, curvey, endx, endy)
